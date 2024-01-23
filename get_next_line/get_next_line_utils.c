@@ -12,6 +12,12 @@
 
 #include "get_next_line.h"
 
+/**
+ * Creates a new node for a linked list.
+ *the node will be allocated with malloc.
+ * @param buf The buffer to be stored in the node.
+ * @return A pointer to the newly created node.
+ */
 t_lst_node	*create_node(char **buf)
 {
 	t_lst_node	*node;

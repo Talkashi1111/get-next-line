@@ -114,6 +114,17 @@ int	prepare_next_line(int fd, t_list *list)
 	return (1);
 }
 
+/**
+ * @brief Reads a line from a file descriptor.
+ *
+ * This function reads a line from the specified file descriptor and returns it as a string.
+ * The function uses a static variable to keep track of the current position in the file,
+ * so it can be called multiple times to read successive lines from the same file.
+ * i use a maximum of 2048 file descriptors, because the maximum number of open files is 1024 per process.(that will differ on different systems)
+ *
+ * @param fd The file descriptor to read from.
+ * @return A pointer to the line read from the file, or NULL if the end of the file has been reached or an error occurred.
+ */
 char	*get_next_line(int fd)
 {
 	char				*next_line;
