@@ -23,7 +23,7 @@ int main(void)
 Compilation and Execution:
 
 ```shell
-gcc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c <you_fun>.c -D BUFFER_SIZE=<size> -o get_next_line
+gcc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c <you_func>.c -D BUFFER_SIZE=<size> -o get_next_line
 ```
 
 ## Remarks
