@@ -1,22 +1,41 @@
-# get-next-line
+# get_next_line
 
-## Function Usage
+## Usage
 
-The primary objective of this project is to implement a function that reads from an opened file, identified by its file descriptor (FD), and returns the next line of text, stopping at the first newline character ("\n") encountered. This process continues until the End Of File (EOF) is reached or a NULL TERMINATOR is found. the function will return each time a char *next_line, a variable that was malloc and will need to be freed from the main function to evoid leaks. 
+The primary objective of this project is to implement a get_next_line() that reads from an opened file, identified by its file descriptor (FD), and returns the next line of text, stopping at the first newline character "\n" encountered. This process continues until the End Of File (EOF) is reached or a "\0" is found. the get_next_line() will return each time a char *next_line, a variable that was allocated and should be freed by you after use to evoid leaks. 
+## basic usage:
+
+```c
+#include "get_next_line.h"
+int main(void)
+{
+	int fd;
+	fd = open("test.txt, O_RDONLY)", O_RDONLY);
+	char *str = get_next_line(fd);
+	printf("%s\n", str);
+	free(str);
+	str = NULL;
+	return (0);
+}
+```
+---
+
+Compilation and Execution:
+
+```shell
+gcc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c "your_func".c -D BUFFER_SIZE=<size> -o get_next_line
+```
 
 ## Remarks
 ---
-
-## Functionality and Implementation
----
-## 1. functionality
+The function is implemented in C on Linux.
 Upon each invocation, if the file remains open, the function remembers the position where the last newline was encountered and resumes reading from the next character.
-## 2. Data Structures:
+## Data Structures:
 - Linked List: Utilizes a linked list to store chunks of text read from the file in a buffer.
 - Control Structure: Employs a secondary structure to maintain references to the head and tail of the linked list, facilitating efficient data management.
+Data structure: single linked list with head and tail, where each node is a buffer of size BUFFER_SIZE. 
+- In case last buffer include the mix of the end of current line and the beggining of the next one, the "cleanup" shift will be done in place(polish()), whithout additional allocations.  
 - bonus part: Reading Many Files at Once
-
-This special part of the project lets you read from more than one file at the same time. It does this by using different file descriptors for each file. This means you can handle several files together, which is a big step up from the basic version of the project where you could only work with one file at a time.
 
 ---
 ## Testing
