@@ -23,7 +23,7 @@ int main(void)
 Compilation and Execution:
 
 ```shell
-gcc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c "your_func".c -D BUFFER_SIZE=<size> -o get_next_line
+gcc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c <you_fun>.c -D BUFFER_SIZE=<size> -o get_next_line
 ```
 
 ## Remarks
@@ -47,7 +47,7 @@ Included Test File: The project includes a test.txt file for testing purposes, t
 Compilation and Execution: To compile and run the test, use the following command:
 
 
-```
+```shell
 gcc -Wall -Wextra -Werror get_next_line_bonus.c get_next_line_utils_bonus.c main_tester.c -o get_next_line
 ```
 
